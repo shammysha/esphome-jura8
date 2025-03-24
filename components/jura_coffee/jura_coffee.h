@@ -22,6 +22,27 @@ class JuraCoffee: public PollingComponent, public UARTDevice {
     void setup() override;
     void loop() override {}
     void update() override;
+
+#ifdef USE_BUTTON
+    SUB_BUTTON(left_top)
+    SUB_BUTTON(left_middle)
+    SUB_BUTTON(left_bottom)
+    SUB_BUTTON(right_top)
+    SUB_BUTTON(right_middle)
+    SUB_BUTTON(right_bottom)
+#endif
+
+#ifdef USE_TEXT_SENSOR
+  SUB_TEXT_SENSOR(tank)
+  SUB_TEXT_SENSOR(tray)
+#endif
+
+#ifdef USE_SWITCH
+  SUB_SWITCH(power)
+
+#endif
+
+
 };
 
 }}
