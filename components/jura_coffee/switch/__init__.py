@@ -15,11 +15,9 @@ AUTO_LOAD = ["jura_coffee"]
 
 JuraCoffeePowerSwitch = jura_coffee_ns.class_("JuraCoffeePowerSwitch", switch.Switch)
 
-ICON_ACCOUNT_GROUP = "mdi:account-group"
-
 CONFIG_SCHEMA = ({
     cv.GenerateID(CONF_JURA_ID): cv.use_id(JuraCoffee),
-    cv.Optional(CONF_POWER ): switch.switch_schema(
+    cv.Optional(CONF_POWER): switch.switch_schema(
         JuraCoffeePowerSwitch,
         device_class=DEVICE_CLASS_POWER
     )    
