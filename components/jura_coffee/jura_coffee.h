@@ -39,7 +39,6 @@ class JuraCoffee: public PollingComponent, public UARTDevice {
 
 #ifdef USE_SWITCH
   SUB_SWITCH(power)
-
 #endif
 
 

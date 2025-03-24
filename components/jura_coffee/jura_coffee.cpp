@@ -4,8 +4,6 @@
 namespace esphome {
 namespace jura_coffee {
 
-JuraCoffee::JuraCoffee(UARTComponent *parent, TextSensor *sensor6, TextSensor *sensor7) : UARTDevice(parent), xsensor6(sensor6), xsensor7(sensor7) {}
-
 void JuraCoffee::setup() {
   this->set_update_interval(10000); // 600000 = 10 minutes // Now 60 seconds
 }
