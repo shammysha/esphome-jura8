@@ -2,7 +2,7 @@ import esphome.codegen as cg
 from esphome.components import switch
 import esphome.config_validation as cv
 from esphome.const import (
-    DEVICE_CLASS_POWER,
+    DEVICE_CLASS_SWITCH,
     CONF_POWER
 )
 from .. import (
@@ -19,7 +19,7 @@ CONFIG_SCHEMA = ({
     cv.GenerateID(CONF_JURA_ID): cv.use_id(JuraCoffee),
     cv.Optional(CONF_POWER): switch.switch_schema(
         JuraCoffeePowerSwitch,
-        device_class=DEVICE_CLASS_POWER
+        device_class=DEVICE_CLASS_SWITCH
     )    
 })
 
