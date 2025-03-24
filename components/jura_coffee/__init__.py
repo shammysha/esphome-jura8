@@ -17,10 +17,6 @@ MULTI_CONF = True
 CONFIG_SCHEMA = cv.Schema(
     {
         cv.GenerateID(): cv.declare_id(JuraCoffee),
-        cv.Optional(CONF_THROTTLE, default="1000ms"): cv.All(
-            cv.positive_time_period_milliseconds,
-            cv.Range(min=cv.TimePeriod(milliseconds=1)),
-        ),
     }
 )
 
