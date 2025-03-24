@@ -7,7 +7,7 @@ from . import (
     CONF_JURA_ID 
 )
 
-DEPENDENCIES = ["JuraCoffee"]
+AUTO_LOAD = ["jura_coffee"]
 
 CONF_TANK = "tank"
 CONF_TRAY = "tray"
