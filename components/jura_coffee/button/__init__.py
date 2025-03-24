@@ -18,11 +18,11 @@ from .. import (
 AUTO_LOAD = ["jura_coffee"]
 
 JuraCoffeeLeftTopButton = jura_coffee_ns.class_("JuraCoffeeLeftTopButton", button.Button)
-JuraCoffeeLeftMiddleButton = ld2450_ns.class_("JuraCoffeeLeftMiddleButton", button.Button)
-JuraCoffeeLeftBottomButton = ld2450_ns.class_("JuraCoffeeLeftBottomButton", button.Button)
+JuraCoffeeLeftMiddleButton = jura_coffee_ns.class_("JuraCoffeeLeftMiddleButton", button.Button)
+JuraCoffeeLeftBottomButton = jura_coffee_ns.class_("JuraCoffeeLeftBottomButton", button.Button)
 JuraCoffeeRightTopButton = jura_coffee_ns.class_("JuraCoffeeRightTopButton", button.Button)
-JuraCoffeeRightMiddleButton = ld2450_ns.class_("JuraCoffeeRightMiddleButton", button.Button)
-JuraCoffeeRightBottomButton = ld2450_ns.class_("JuraCoffeeRightBottomButton", button.Button)
+JuraCoffeeRightMiddleButton = jura_coffee_ns.class_("JuraCoffeeRightMiddleButton", button.Button)
+JuraCoffeeRightBottomButton = jura_coffee_ns.class_("JuraCoffeeRightBottomButton", button.Button)
 
 
 CONF_LEFT_TOP = "left_top"
