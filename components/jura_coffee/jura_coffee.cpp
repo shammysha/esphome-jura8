@@ -16,7 +16,7 @@ namespace esphome {
       long bytes;
       int trayBit, tankBit;
 
-      result = cmd2jura("IC:");
+      result = this->cmd2jura("IC:");
       ESP_LOGD("main", "Raw IC result: %s", result.c_str());
       hexString = result.substring(3, 8);
       ESP_LOGD("main", "hexString: %s", hexString.c_str());
