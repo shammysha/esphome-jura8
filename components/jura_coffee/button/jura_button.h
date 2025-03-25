@@ -14,7 +14,7 @@ namespace esphome {
         void press_action() override;
     };
 
-    class LeftMiddleButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftMiddleButton : public button::Button, public Parented<JuraCoffee> {
       public:
         LeftMiddleButton() = default;
 
@@ -22,7 +22,7 @@ namespace esphome {
         void press_action() override;
     };
 
-    class LeftBottomButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftBottomButton : public button::Button, public Parented<JuraCoffee> {
       public:
         LeftBottomButton() = default;
 
@@ -30,7 +30,7 @@ namespace esphome {
         void press_action() override;
     };
 
-    class RightTopButton: public button::Button, public Parented<JuraCoffee> {
+    class RightTopButton : public button::Button, public Parented<JuraCoffee> {
       public:
         RightTopButton() = default;
 
@@ -38,7 +38,7 @@ namespace esphome {
         void press_action() override;
     };
 
-    class RightMiddleButton: public button::Button, public Parented<JuraCoffee> {
+    class RightMiddleButton : public button::Button, public Parented<JuraCoffee> {
       public:
         RightMiddleButton() = default;
 
@@ -46,7 +46,7 @@ namespace esphome {
         void press_action() override;
     };
 
-    class RightBottomButton: public button::Button, public Parented<JuraCoffee> {
+    class RightBottomButton : public button::Button, public Parented<JuraCoffee> {
       public:
         RightBottomButton() = default;
 
