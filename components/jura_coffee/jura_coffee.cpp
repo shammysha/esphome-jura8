@@ -43,6 +43,8 @@ namespace esphome {
 
       data += "\r\n";
 
+      this->flush();
+
       for (char c : data) {
         this->write_array(this->encode(static_cast<uint8_t>(c)));
         delay(8);

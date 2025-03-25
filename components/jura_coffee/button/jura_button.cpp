@@ -4,27 +4,27 @@ namespace esphome {
   namespace jura_coffee {
 
     void LeftTopButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:04");
+      this->parent_->cmd2jura("FA:04");
     }
 
     void LeftMiddleButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:05");
+      this->parent_->cmd2jura("FA:05");
     }
 
     void LeftBottomButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:06");
+      this->parent_->cmd2jura("FA:06");
     }
 
     void RightTopButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:07");
+      this->parent_->cmd2jura("FA:07");
     }
 
     void RightMiddleButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:08");
+      this->parent_->cmd2jura("FA:08");
     }
 
     void RightBottomButton::press_action() {
-      String result = this->parent_->cmd2jura("FA:09");
+      this->parent_->cmd2jura("FA:09");
     }
 
   }
