@@ -26,6 +26,6 @@ CONFIG_SCHEMA = ({
 async def to_code(config):
     jura_component = await cg.get_variable(config[CONF_JURA_ID])
     if power := config.get(CONF_POWER):
-        s = await switch.new_switch(power)
-        cg.add(jura_component.set_power_switch(power))        
+        sw = await switch.new_switch(power)
+        cg.add(jura_component.set_power_switch(sw))        
                 
