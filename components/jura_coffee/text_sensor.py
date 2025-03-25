@@ -20,10 +20,10 @@ CONFIG_SCHEMA = {
 
 
 async def to_code(config):
-    jura_coffee = await cg.get_variable(config[CONF_JURA_ID])
+    jura_component = await cg.get_variable(config[CONF_JURA_ID])
     if tank := config.get(CONF_TANK):
         sens = await text_sensor.new_text_sensor(tank)
-        cg.add(JuraCoffee.set_tank_text_sensor(sens))
+        cg.add(jura_component.set_tank_text_sensor(sens))
     if tray := config.get(CONF_TRAY):
         sens = await text_sensor.new_text_sensor(tray)
-        cg.add(JuraCoffee.set_tray_text_sensor(sens))
+        cg.add(jura_component.set_tray_text_sensor(sens))
