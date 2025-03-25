@@ -71,24 +71,30 @@ async def to_code(config):
     jura_component = await cg.get_variable(config[CONF_JURA_ID])
     if left_top := config.get(CONF_LEFT_TOP):
         btn = await button.new_button(left_top)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_left_top_button(btn))        
     
     if left_middle := config.get(CONF_LEFT_MIDDLE):
         btn = await button.new_button(left_middle)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_left_middle_button(btn))   
     
     if left_bottom := config.get(CONF_LEFT_BOTTOM):
         btn = await button.new_button(left_bottom)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_left_bottom_button(btn))   
     
     if right_top := config.get(CONF_RIGHT_TOP):
         btn = await button.new_button(right_top)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_right_top_button(btn))        
     
     if right_middle := config.get(CONF_RIGHT_MIDDLE):
         btn = await button.new_button(right_middle)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_right_middle_button(btn))   
     
     if right_bottom := config.get(CONF_RIGHT_BOTTOM):
         btn = await button.new_button(right_bottom)
+        await cg.register_parented(btn, config[CONF_JURA_ID])
         cg.add(jura_component.set_right_bottom_button(btn))            
