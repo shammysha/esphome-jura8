@@ -51,6 +51,7 @@ namespace esphome {
       }
 
       int s = 0;
+      int w = 0;
       char inbyte;
       String inbytes;
 
