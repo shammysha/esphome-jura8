@@ -11,8 +11,6 @@ from .. import (
     CONF_JURA_ID    
 )
 
-AUTO_LOAD = ["jura_coffee"]
-
 PowerSwitch = jura_coffee_ns.class_("PowerSwitch", switch.Switch)
 
 CONFIG_SCHEMA = ({

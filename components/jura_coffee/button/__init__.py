@@ -15,8 +15,6 @@ from .. import (
     CONF_JURA_ID    
 )
 
-AUTO_LOAD = ["jura_coffee"]
-
 LeftTopButton = jura_coffee_ns.class_("LeftTopButton", button.Button)
 LeftMiddleButton = jura_coffee_ns.class_("LeftMiddleButton", button.Button)
 LeftBottomButton = jura_coffee_ns.class_("LeftBottomButton", button.Button)
