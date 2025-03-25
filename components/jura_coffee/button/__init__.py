@@ -30,32 +30,39 @@ CONF_RIGHT_TOP = "right_top"
 CONF_RIGHT_MIDDLE = "right_middle"
 CONF_RIGHT_BOTTOM = "right_bottom"
 
+ICON_LEFT_TOP = "mdi:arrow-top-left-bold-box-outline"
+ICON_LEFT_MIDDLE = "mdi:arrow-left-bold-box-outline"
+ICON_LEFT_BOTTOM = "mdi:arrow-bottom-left-bold-box-outline"
+ICON_RIGHT_TOP = "mdi:arrow-top-right-bold-box-outline"
+ICON_RIGHT_MIDDLE = "mdi:arrow-right-bold-box-outline"
+ICON_RIGHT_BOTTOM = "mdi:arrow-bottom-right-bold-box-outline"
+
 CONFIG_SCHEMA = {
     cv.GenerateID(CONF_JURA_ID): cv.use_id(JuraCoffee),
     
     cv.Optional(CONF_LEFT_TOP): button.button_schema(
         LeftTopButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_LEFT_TOP
     ),
     cv.Optional(CONF_LEFT_MIDDLE): button.button_schema(
         LeftMiddleButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_LEFT_MIDDLE
     ),
     cv.Optional(CONF_LEFT_BOTTOM): button.button_schema(
         LeftBottomButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_LEFT_BOTTOM
     ),
     cv.Optional(CONF_RIGHT_TOP): button.button_schema(
         RightTopButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_RIGHT_TOP
     ),
     cv.Optional(CONF_RIGHT_MIDDLE): button.button_schema(
         RightMiddleButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_RIGHT_MIDDLE
     ),
     cv.Optional(CONF_RIGHT_BOTTOM): button.button_schema(
         RightBottomButton,
-        icon=ICON_RESTART_ALERT,
+        icon=ICON_RIGHT_BOTTOM
     ),
 }
 
