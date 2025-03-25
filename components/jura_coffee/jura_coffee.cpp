@@ -39,10 +39,6 @@ namespace esphome {
     }
 
     String JuraCoffee::cmd2jura(std::string data) {
-      while (this->available()) {
-        this->read();
-      }
-
       data += "\r\n";
 
       for (char c : data) {
@@ -50,19 +46,18 @@ namespace esphome {
         delay(8);
       }
 
+      std::array<uint8_t, 4> result;
+
       int s = 0;
       int w = 0;
       char inbyte;
       String inbytes;
 
       while (!inbytes.endsWith("\r\n")) {
-        if (available()) {
-          byte rawbyte = this->read();
-          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
-          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
-          if ((s += 2) >= 8) {
-            s = 0;
-            inbytes += inbyte;
+        if (this->available()) {
+          if (this->read_array(result)) {
+            inbytes +=
+            inbytes += this->decode(result);
           }
         } else {
           delay(10);
