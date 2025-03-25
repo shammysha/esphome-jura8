@@ -36,6 +36,11 @@ namespace esphome {
         this->tank_text_sensor_->publish_state(this->tank_status_);
       }
 #endif
+#ifdef USE_SWITCH
+      if (this->power_switch_ != nullptr) {
+        this->power_switch_->publish_state(true);
+      }
+#endif
     }
 
     String JuraCoffee::cmd2jura(std::string data) {

@@ -9,7 +9,6 @@ namespace esphome {
     }
 
     void LeftMiddleButton::press_action() {
-      ESP_LOGD("main", "Sending command FA:05");
       this->parent_->cmd2jura("FA:05");
     }
 
