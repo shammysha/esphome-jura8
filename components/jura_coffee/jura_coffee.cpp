@@ -43,6 +43,8 @@ namespace esphome {
         this->read();
       }
 
+      delay(10);
+
       ESP_LOGD("main", "Sending command %s", data.c_str());
 
       data += "\r\n";
