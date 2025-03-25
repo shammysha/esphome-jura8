@@ -38,7 +38,7 @@ namespace esphome {
 #endif
     }
 
-    void JuraCoffee::cmd2jura(std::string& data) {
+    void JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
