@@ -6,7 +6,7 @@
 namespace esphome {
   namespace jura_coffee {
 
-    class LeftTopButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftTopButton : public button::Button, public Parented<JuraCoffee> {
       public:
         LeftTopButton() = default;
 
