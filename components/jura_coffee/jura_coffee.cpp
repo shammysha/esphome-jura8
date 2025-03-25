@@ -38,7 +38,7 @@ namespace esphome {
 #endif
     }
 
-    void JuraCoffee::cmd2jura(std::string data) {
+    std::string JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -50,7 +50,28 @@ namespace esphome {
         delay(8);
       }
 
-      this->flush();
+      int s = 0;
+      char inbyte;
+      std::string inbytes;
+
+      while (!inbytes.endsWith("\r\n")) {
+        if (available()) {
+          byte rawbyte = this->read();
+          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
+          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
+          if ((s += 2) >= 8) {
+            s = 0;
+            inbytes += inbyte;
+          }
+        } else {
+          delay(10);
+        }
+        if (w++ > 500) {
+          return "";
+        }
+      }
+
+      return inbytes.substring(0, inbytes.length() - 2);
     }
 
     std::array<uint8_t, 4> JuraCoffee::encode(const uint8_t &decData) {
