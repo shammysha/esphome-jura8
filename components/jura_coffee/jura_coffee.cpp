@@ -53,11 +53,16 @@ namespace esphome {
       char inbyte;
       String inbytes;
 
+      int s = 0;
+      char inbyte;
       while (!inbytes.endsWith("\r\n")) {
-        if (this->available()) {
-          if (this->read_array(result)) {
-            inbytes +=
-            inbytes += this->decode(result);
+        if (available()) {
+          byte rawbyte = read();
+          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
+          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
+          if ((s += 2) >= 8) {
+            s = 0;
+            inbytes += inbyte;
           }
         } else {
           delay(10);
