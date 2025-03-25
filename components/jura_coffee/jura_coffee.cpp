@@ -49,11 +49,9 @@ String JuraCoffee::cmd2jura(String outbytes) {
   return inbytes.substring(0, inbytes.length() - 2);
 }
 
-void JuraCoffee::setup() override {
+void JuraCoffee::setup() {
   this->set_update_interval(10000); // 600000 = 10 minutes // Now 60 seconds
 }
-
-void loop() override {}
 
 void JuraCoffee::update() {
   String result, hexString, substring;
@@ -80,8 +78,14 @@ void JuraCoffee::update() {
     tank_status = "OK";
   }
 
-  if (xsensor6 != nullptr) xsensor6->publish_state(tray_status);
-  if (xsensor7 != nullptr) xsensor7->publish_state(tank_status);
+#ifdef USE_TEXT_SENSOR
+  if (this->tray_text_sensor_ != nullptr) {
+    this->tray_text_sensor_->publish_state(tray_status);
+  }
+  if (this->tank_text_sensor_ != nullptr) {
+    this->tank_text_sensor_->publish_state(tank_status);
+  }
+#endif
 }
 
 }}
