@@ -39,6 +39,8 @@ namespace esphome {
     }
 
     String JuraCoffee::cmd2jura(std::string data) {
+      ESP_LOGD("main", "Sending command %s", data.c_str());
+
       data += "\r\n";
 
       for (char c : data) {
