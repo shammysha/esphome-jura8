@@ -1,7 +1,19 @@
 #include "esphome.h"
-// #include <esphome/components/homeassistant/text_sensor/homeassistant_text_sensor.h>
 
-// using namespace homeassistant;
+#ifdef USE_SWITCH
+#include "esphome/components/switch/switch.h"
+#endif
+
+#ifdef USE_BUTTON
+#include "esphome/components/button/button.h"
+#endif
+
+#ifdef USE_TEXT_SENSOR
+#include "esphome/components/text_sensor/text_sensor.h"
+#endif
+
+#include "esphome/components/uart/uart.h"
+#include "esphome/core/helpers.h"
 
 namespace esphome {
   namespace jura_coffee {
