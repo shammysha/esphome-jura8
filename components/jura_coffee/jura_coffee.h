@@ -1,6 +1,7 @@
 #pragma once
 
-#include "esphome.h"
+#include "esphome/core/defines.h"
+#include "esphome/core/component.h"
 
 #ifdef USE_SWITCH
 #include "esphome/components/switch/switch.h"
