@@ -6,49 +6,49 @@
 namespace esphome {
   namespace jura_coffee {
 
-    class JuraCofeeLeftTopButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftTopButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeLeftTopButton() = default;
+        LeftTopButton() = default;
 
       protected:
         void press_action() override;
     };
 
-    class JuraCofeeLeftMiddleButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftMiddleButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeLeftMiddleButton() = default;
+        LeftMiddleButton() = default;
 
       protected:
         void press_action() override;
     };
 
-    class JuraCofeeLeftBottomButton: public button::Button, public Parented<JuraCoffee> {
+    class LeftBottomButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeLeftBottomButton() = default;
+        LeftBottomButton() = default;
 
       protected:
         void press_action() override;
     };
 
-    class JuraCofeeRightTopButton: public button::Button, public Parented<JuraCoffee> {
+    class RightTopButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeRightTopButton() = default;
+        RightTopButton() = default;
 
       protected:
         void press_action() override;
     };
 
-    class JuraCofeeRightMiddleButton: public button::Button, public Parented<JuraCoffee> {
+    class RightMiddleButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeRightMiddleButton() = default;
+        RightMiddleButton() = default;
 
       protected:
         void press_action() override;
     };
 
-    class JuraCofeeRightBottomButton: public button::Button, public Parented<JuraCoffee> {
+    class RightBottomButton: public button::Button, public Parented<JuraCoffee> {
       public:
-        JuraCofeeRightBottomButton() = default;
+        RightBottomButton() = default;
 
       protected:
         void press_action() override;

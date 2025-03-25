@@ -6,9 +6,9 @@
 namespace esphome {
   namespace jura_coffee {
 
-    class JuraCoffeePowerSwitch: public switch_::Switch, public Parented<JuraCoffee> {
+    class PowerSwitch: public switch_::Switch, public Parented<JuraCoffee> {
       public:
-        JuraCoffeePowerSwitch() = default;
+        PowerSwitch() = default;
 
       protected:
         void write_state(bool state) override;

@@ -17,12 +17,12 @@ from .. import (
 
 AUTO_LOAD = ["jura_coffee"]
 
-JuraCoffeeLeftTopButton = jura_coffee_ns.class_("JuraCoffeeLeftTopButton", button.Button)
-JuraCoffeeLeftMiddleButton = jura_coffee_ns.class_("JuraCoffeeLeftMiddleButton", button.Button)
-JuraCoffeeLeftBottomButton = jura_coffee_ns.class_("JuraCoffeeLeftBottomButton", button.Button)
-JuraCoffeeRightTopButton = jura_coffee_ns.class_("JuraCoffeeRightTopButton", button.Button)
-JuraCoffeeRightMiddleButton = jura_coffee_ns.class_("JuraCoffeeRightMiddleButton", button.Button)
-JuraCoffeeRightBottomButton = jura_coffee_ns.class_("JuraCoffeeRightBottomButton", button.Button)
+LeftTopButton = jura_coffee_ns.class_("LeftTopButton", button.Button)
+LeftMiddleButton = jura_coffee_ns.class_("LeftMiddleButton", button.Button)
+LeftBottomButton = jura_coffee_ns.class_("LeftBottomButton", button.Button)
+RightTopButton = jura_coffee_ns.class_("RightTopButton", button.Button)
+RightMiddleButton = jura_coffee_ns.class_("RightMiddleButton", button.Button)
+RightBottomButton = jura_coffee_ns.class_("RightBottomButton", button.Button)
 
 
 CONF_LEFT_TOP = "left_top"
@@ -36,27 +36,27 @@ CONFIG_SCHEMA = {
     cv.GenerateID(CONF_JURA_ID): cv.use_id(JuraCoffee),
     
     cv.Optional(CONF_LEFT_TOP): button.button_schema(
-        JuraCoffeeLeftTopButton,
+        LeftTopButton,
         icon=ICON_RESTART_ALERT,
     ),
     cv.Optional(CONF_LEFT_MIDDLE): button.button_schema(
-        JuraCoffeeLeftMiddleButton,
+        LeftMiddleButton,
         icon=ICON_RESTART_ALERT,
     ),
     cv.Optional(CONF_LEFT_BOTTOM): button.button_schema(
-        JuraCoffeeLeftBottomButton,
+        LeftBottomButton,
         icon=ICON_RESTART_ALERT,
     ),
     cv.Optional(CONF_RIGHT_TOP): button.button_schema(
-        JuraCoffeeRightTopButton,
+        RightTopButton,
         icon=ICON_RESTART_ALERT,
     ),
     cv.Optional(CONF_RIGHT_MIDDLE): button.button_schema(
-        JuraCoffeeRightMiddleButton,
+        RightMiddleButton,
         icon=ICON_RESTART_ALERT,
     ),
     cv.Optional(CONF_RIGHT_BOTTOM): button.button_schema(
-        JuraCoffeeRightBottomButton,
+        RightBottomButton,
         icon=ICON_RESTART_ALERT,
     ),
 }

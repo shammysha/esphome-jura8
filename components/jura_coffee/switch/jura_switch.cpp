@@ -3,7 +3,7 @@
 namespace esphome {
   namespace jura_coffee {
 
-    void JuraCoffeePowerSwitch::write_state(bool state) {
+    void PowerSwitch::write_state(bool state) {
       this->publish_state(state);
 
       if (state) {

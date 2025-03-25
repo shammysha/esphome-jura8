@@ -13,12 +13,12 @@ from .. import (
 
 AUTO_LOAD = ["jura_coffee"]
 
-JuraCoffeePowerSwitch = jura_coffee_ns.class_("JuraCoffeePowerSwitch", switch.Switch)
+PowerSwitch = jura_coffee_ns.class_("PowerSwitch", switch.Switch)
 
 CONFIG_SCHEMA = ({
     cv.GenerateID(CONF_JURA_ID): cv.use_id(JuraCoffee),
     cv.Optional(CONF_POWER): switch.switch_schema(
-        JuraCoffeePowerSwitch,
+        PowerSwitch,
         device_class=DEVICE_CLASS_SWITCH
     )    
 })
