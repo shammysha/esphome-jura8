@@ -1,3 +1,5 @@
+#pragma once
+
 #include "esphome.h"
 
 #ifdef USE_SWITCH
