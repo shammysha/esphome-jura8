@@ -1,4 +1,4 @@
-#include "jura_switch.h"
+#include "power_switch.h"
 
 namespace esphome {
   namespace jura_coffee {
