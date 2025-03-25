@@ -53,8 +53,6 @@ namespace esphome {
       char inbyte;
       String inbytes;
 
-      int s = 0;
-      char inbyte;
       while (!inbytes.endsWith("\r\n")) {
         if (available()) {
           byte rawbyte = read();
