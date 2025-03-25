@@ -43,7 +43,9 @@ namespace esphome {
       public:
         JuraCoffee();
 
-        String cmd2jura(String outbytes);
+        void cmd2jura(std::string& data);
+        std::array<uint8_t, 4> encode(const uint8_t &decData);
+        uint8_t decode(const std::array<uint8_t, 4> &encData);
 
         void setup() override;
         void update() override;
