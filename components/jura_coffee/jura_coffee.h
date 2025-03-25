@@ -6,7 +6,7 @@
 namespace esphome {
   namespace jura_coffee {
 
-    class JuraCoffee: public PollingComponent, public uart::UARTDevice {
+    class JuraCoffee : public PollingComponent, public uart::UARTDevice {
 
       public:
         JuraCoffee();
