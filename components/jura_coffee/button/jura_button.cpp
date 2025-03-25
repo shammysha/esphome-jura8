@@ -8,7 +8,7 @@ namespace esphome {
     }
 
     void LeftMiddleButton::press_action() {
-      String result this->parent_->cmd2jura("FA:05");
+      String result = this->parent_->cmd2jura("FA:05");
     }
 
     void LeftBottomButton::press_action() {
