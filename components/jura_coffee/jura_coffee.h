@@ -23,9 +23,6 @@ namespace esphome {
       public:
         JuraCoffee();
 
-        std::string tray_status
-        std::string tank_status;
-
         String cmd2jura(String outbytes);
 
         void setup() override;
@@ -50,6 +47,10 @@ namespace esphome {
   SUB_SWITCH(power)
 #endif
 
+
+      protected:
+        std::string tray_status_;
+        std::string tank_status_;
     };
 
   }

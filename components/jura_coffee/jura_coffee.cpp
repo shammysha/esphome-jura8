@@ -67,23 +67,16 @@ void JuraCoffee::update() {
   trayBit = (bytes & (1 << 12)) >> 12;
   tankBit = (bytes & (1 << 5)) >> 5;
 
-  if (trayBit == 0) {
-    tray_status = "Missing";
-  } else {
-    tray_status = "Present";
-  }
-  if (tankBit == 1) {
-    tank_status = "Fill Tank";
-  } else {
-    tank_status = "OK";
-  }
+  this->tray_status_ = (trayBit == 0 ? "Missing" : "Present");
+  this->tank_status_ = (tankBit == 1 ? "Fill Tank" : "OK");
+
 
 #ifdef USE_TEXT_SENSOR
   if (this->tray_text_sensor_ != nullptr) {
-    this->tray_text_sensor_->publish_state(tray_status);
+    this->tray_text_sensor_->publish_state(this->tray_status_);
   }
   if (this->tank_text_sensor_ != nullptr) {
-    this->tank_text_sensor_->publish_state(tank_status);
+    this->tank_text_sensor_->publish_state(this->tank_status_);
   }
 #endif
 }
