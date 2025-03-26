@@ -12,13 +12,13 @@ namespace esphome {
     }
 
     void JuraCoffee::update() {
-      String result, hexString, substring;
+      std::string result, hexString, substring;
       long bytes;
       int trayBit, tankBit;
 
       result = this->cmd2jura("IC:");
       ESP_LOGD("main", "Raw IC result: %s", result.c_str());
-      hexString = result.substring(3, 8);
+      hexString = result.substr(3, 8);
       ESP_LOGD("main", "hexString: %s", hexString.c_str());
       bytes = strtol(hexString.c_str(), NULL, 16);
 
@@ -43,7 +43,7 @@ namespace esphome {
 #endif
     }
 
-    String JuraCoffee::cmd2jura(std::string data) {
+    std::string JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -66,7 +66,7 @@ namespace esphome {
       char inbyte;
       String inbytes;
 
-      while (!inbytes.endsWith("\r\n")) {
+      while (!str_endswith(inbytes, "\r\n")) {
         std::array<uint8_t, 4> bytes;
 
         for (int i=0; i < 4; i++) {
