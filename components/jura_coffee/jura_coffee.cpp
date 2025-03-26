@@ -67,20 +67,21 @@ namespace esphome {
       String inbytes;
 
       while (!inbytes.endsWith("\r\n")) {
-        if (this->available()) {
-          byte rawbyte = this->read();
-          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
-          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
-          if ((s += 2) >= 8) {
-            s = 0;
-            inbytes += inbyte;
+        std::array<uint8_t, 4> bytes;
+
+        for (i==0; i < 4; i++) {
+          if (this->available()) {
+            bytes[i] = this->read();
+          } else {
+            delay(10);
           }
-        } else {
-          delay(10);
+          if (w++ > 500) {
+            return "";
+          }
         }
-        if (w++ > 500) {
-          return "";
-        }
+
+        inbytes += (char) this->decode(bytes);
+        ESP_LOGD("main", "Chars fetched: %s", inbytes.c_str());
       }
 
       return inbytes.substring(0, inbytes.length() - 2);
