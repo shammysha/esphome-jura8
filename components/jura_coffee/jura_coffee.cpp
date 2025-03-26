@@ -84,7 +84,7 @@ namespace esphome {
         ESP_LOGD("main", "Chars fetched: %s", inbytes.c_str());
       }
 
-      return inbytes.substring(0, inbytes.length() - 2);
+      return inbytes.substr(0, inbytes.length() - 2);
     }
 
     std::array<uint8_t, 4> JuraCoffee::encode(const uint8_t &decData) {
