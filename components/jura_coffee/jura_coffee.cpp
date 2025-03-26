@@ -62,7 +62,7 @@ namespace esphome {
       String inchars;
       std::array<uint8_t, 4> inchar
 
-      while (!inbytes.endsWith("\r\n")) {
+      while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
           inchars += static_cast<char> this->decode(this->read_array(inchar));
         } else {
