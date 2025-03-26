@@ -59,22 +59,14 @@ namespace esphome {
         delay(8);
       }
 
-      std::array<uint8_t, 4> result;
-
-      int s = 0;
+      String inchars;
+      std::array<uint8_t, 4> inbytes;
       int w = 0;
-      char inbyte;
-      String inbytes;
 
-      while (!inbytes.endsWith("\r\n")) {
+      while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
-          byte rawbyte = this->read();
-          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
-          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
-          if ((s += 2) >= 8) {
-            s = 0;
-            inbytes += inbyte;
-          }
+          this->read_array((uint8_t *) &inbytes, sizeof(inbytes));
+          inchars += this->decode(inbytes);
         } else {
           delay(10);
         }
@@ -83,7 +75,7 @@ namespace esphome {
         }
       }
 
-      return inbytes.substring(0, inbytes.length() - 2);
+      return inchars.substring(0, inchars.length() - 2);
     }
 
     std::array<uint8_t, 4> JuraCoffee::encode(const uint8_t &decData) {
