@@ -61,10 +61,11 @@ namespace esphome {
 
       String inchars;
       std::array<uint8_t, 4> inchar;
+      int w = 0;
 
       while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
-          inchars += static_cast<char> this->decode(this->read_array(inchar));
+          inchars += (static_cast<char>) this->decode(this->read_array(inchar));
         } else {
           delay(10);
         }
