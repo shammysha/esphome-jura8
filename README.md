@@ -8,6 +8,14 @@ Example:
 substitutions:
   devicename: "jura-coffee"
 
+external_components:
+  - source:
+      type: git
+      url: https://github.com/shammysha/esphome-jura8
+      ref: main
+    components: [ jura_coffee ]
+    refresh: 1s
+
 uart:
   id: uart_bus
   tx_pin: D2
