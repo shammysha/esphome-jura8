@@ -65,7 +65,7 @@ namespace esphome {
 
       while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
-          this->read_array(inbytes);
+          this->read_array(&inbytes);
           inchars += this->decode(inbytes);
         } else {
           delay(10);
