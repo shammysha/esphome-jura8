@@ -69,7 +69,7 @@ namespace esphome {
       while (!inbytes.endsWith("\r\n")) {
         std::array<uint8_t, 4> bytes;
 
-        for (i==0; i < 4; i++) {
+        for (int i==0; i < 4; i++) {
           if (this->available()) {
             bytes[i] = this->read();
           } else {
