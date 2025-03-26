@@ -65,9 +65,10 @@ namespace esphome {
       int w = 0;
       char inbyte;
       std::string inbytes;
+      std::array<uint8_t, 4> bytes;
 
       while (!str_endswith(inbytes, "\r\n")) {
-        std::array<uint8_t, 4> bytes;
+
 
         for (int i=0; i < 4; i++) {
           if (this->available()) {
