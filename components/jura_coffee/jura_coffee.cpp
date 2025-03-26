@@ -80,7 +80,7 @@ namespace esphome {
           }
         }
 
-        inbytes += this->decode(bytes);
+        inbytes += std::to_string(this->decode(bytes));
         ESP_LOGD("main", "Chars fetched: %s", inbytes.c_str());
       }
 
