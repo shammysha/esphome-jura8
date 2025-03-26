@@ -60,12 +60,12 @@ namespace esphome {
       }
 
       String inchars;
-      uint8_t inbytes[4];
+      std::array<uint8_t, 4> inbytes;
       int w = 0;
 
       while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
-          this->read_array(inbytes, 4);
+          this->read_array(inbytes);
           inchars += this->decode(inbytes);
         } else {
           delay(10);
