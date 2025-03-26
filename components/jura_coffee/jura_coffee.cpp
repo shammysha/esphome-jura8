@@ -80,7 +80,7 @@ namespace esphome {
           }
         }
 
-        inbytes += (char) this->decode(bytes);
+        inbytes += this->decode(bytes);
         ESP_LOGD("main", "Chars fetched: %s", inbytes.c_str());
       }
 
