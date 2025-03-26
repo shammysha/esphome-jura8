@@ -12,13 +12,13 @@ namespace esphome {
     }
 
     void JuraCoffee::update() {
-      std::string result, hexString, substring;
+      String result, hexString, substring;
       long bytes;
       int trayBit, tankBit;
 
       result = this->cmd2jura("IC:");
       ESP_LOGD("main", "Raw IC result: %s", result.c_str());
-      hexString = result.substr(3, 8);
+      hexString = result.substring(3, 8);
       ESP_LOGD("main", "hexString: %s", hexString.c_str());
       bytes = strtol(hexString.c_str(), NULL, 16);
 
@@ -43,7 +43,7 @@ namespace esphome {
 #endif
     }
 
-    std::string JuraCoffee::cmd2jura(std::string data) {
+    String JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -64,28 +64,26 @@ namespace esphome {
       int s = 0;
       int w = 0;
       char inbyte;
-      std::string inbytes;
-      std::array<uint8_t, 4> bytes;
+      String inbytes;
 
-      while (!str_endswith(inbytes, "\r\n")) {
-
-
-        for (int i=0; i < 4; i++) {
-          if (this->available()) {
-            bytes[i] = this->read();
-          } else {
-            delay(10);
+      while (!inbytes.endsWith("\r\n")) {
+        if (this->available()) {
+          byte rawbyte = this->read();
+          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
+          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
+          if ((s += 2) >= 8) {
+            s = 0;
+            inbytes += inbyte;
           }
-          if (w++ > 500) {
-            return "";
-          }
+        } else {
+          delay(10);
         }
-
-        inbytes += std::to_string(this->decode(bytes));
-        ESP_LOGD("main", "Chars fetched: %s", inbytes.c_str());
+        if (w++ > 500) {
+          return "";
+        }
       }
 
-      return inbytes.substr(0, inbytes.length() - 2);
+      return inbytes.substring(0, inbytes.length() - 2);
     }
 
     std::array<uint8_t, 4> JuraCoffee::encode(const uint8_t &decData) {
