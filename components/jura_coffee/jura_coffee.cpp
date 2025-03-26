@@ -60,7 +60,7 @@ namespace esphome {
       }
 
       String inchars;
-      std::array<uint8_t, 4> inchar
+      std::array<uint8_t, 4> inchar;
 
       while (!inchars.endsWith("\r\n")) {
         if (this->available()) {
