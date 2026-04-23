@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "esphome/core/defines.h"
 #include "esphome/core/component.h"
 
