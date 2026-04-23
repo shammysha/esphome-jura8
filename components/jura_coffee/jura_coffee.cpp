@@ -1,3 +1,5 @@
+#include <string>
+
 #include "jura_coffee.h"
 #include "esphome/core/log.h"
 
