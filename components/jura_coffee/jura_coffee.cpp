@@ -1,5 +1,3 @@
-#include <string>
-
 #include "jura_coffee.h"
 #include "esphome/core/log.h"
 
@@ -14,13 +12,13 @@ namespace esphome {
     }
 
     void JuraCoffee::update() {
-      string result, hexString, substring;
+      std::string result, hexString, substring;
       long bytes;
       int trayBit, tankBit;
 
       result = this->cmd2jura("IC:");
       ESP_LOGD("main", "Raw IC result: %s", result.c_str());
-      hexString = result.substring(3, 8);
+      hexString = result.substr(3, 8);
       ESP_LOGD("main", "hexString: %s", hexString.c_str());
       bytes = strtol(hexString.c_str(), NULL, 16);
 
@@ -45,7 +43,7 @@ namespace esphome {
 #endif
     }
 
-    string JuraCoffee::cmd2jura(std::string data) {
+    std::string JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -66,7 +64,7 @@ namespace esphome {
       int s = 0;
       int w = 0;
       char inbyte;
-      string inbytes;
+      std::string inbytes;
 
       while (!inbytes.endsWith("\r\n")) {
         if (this->available()) {
