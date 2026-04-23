@@ -43,7 +43,7 @@ namespace esphome {
 #endif
     }
 
-    String JuraCoffee::cmd2jura(std::string data) {
+    std::string JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -64,7 +64,7 @@ namespace esphome {
       int s = 0;
       int w = 0;
       char inbyte;
-      String inbytes;
+      std::string inbytes;
 
       while (!inbytes.endsWith("\r\n")) {
         if (this->available()) {
