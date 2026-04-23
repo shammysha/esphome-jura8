@@ -12,7 +12,7 @@ namespace esphome {
     }
 
     void JuraCoffee::update() {
-      String result, hexString, substring;
+      std::string result, hexString, substring;
       long bytes;
       int trayBit, tankBit;
 
