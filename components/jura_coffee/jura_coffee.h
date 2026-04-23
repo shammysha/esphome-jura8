@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "esphome/core/defines.h"
 #include "esphome/core/component.h"
 
@@ -43,7 +45,7 @@ namespace esphome {
       public:
         JuraCoffee();
 
-        std::string cmd2jura(std::string data);
+        string cmd2jura(std::string data);
         std::array<uint8_t, 4> encode(const uint8_t &decData);
         uint8_t decode(const std::array<uint8_t, 4> &encData);
 

@@ -12,7 +12,7 @@ namespace esphome {
     }
 
     void JuraCoffee::update() {
-      std::string result, hexString, substring;
+      string result, hexString, substring;
       long bytes;
       int trayBit, tankBit;
 
@@ -43,7 +43,7 @@ namespace esphome {
 #endif
     }
 
-    std::string JuraCoffee::cmd2jura(std::string data) {
+    string JuraCoffee::cmd2jura(std::string data) {
       while (this->available()) {
         this->read();
       }
@@ -64,7 +64,7 @@ namespace esphome {
       int s = 0;
       int w = 0;
       char inbyte;
-      std::string inbytes;
+      string inbytes;
 
       while (!inbytes.endsWith("\r\n")) {
         if (this->available()) {
