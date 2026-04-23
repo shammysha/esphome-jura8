@@ -68,7 +68,7 @@ namespace esphome {
 
       while (!inbytes.ends_with("\r\n")) {
         if (this->available()) {
-          byte rawbyte = this->read();
+          std::byte rawbyte = this->read();
           bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
           bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
           if ((s += 2) >= 8) {
