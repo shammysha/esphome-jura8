@@ -63,14 +63,18 @@ namespace esphome {
 
       int s = 0;
       int w = 0;
-      char inbyte;
+      char bit2, bit5, inbyte;
       std::string inbytes;
 
       while (!inbytes.ends_with("\r\n")) {
         if (this->available()) {
           int rawbyte = this->read();
-          bitWrite(inbyte, s + 0, bitRead(rawbyte, 2));
-          bitWrite(inbyte, s + 1, bitRead(rawbyte, 5));
+          bit2 = (rawbyte) >> 2 & 0x01;
+          bit5 = (rawbyte) >> 5 & 0x01);
+
+          inbyte = inbyte & ~(1u << (s + 0)) | (bit2 << (s + 0));
+          inbyte = inbyte & ~(1u << (s + 1)) | (bit5 << (s + 1));
+
           if ((s += 2) >= 8) {
             s = 0;
             inbytes += inbyte;
