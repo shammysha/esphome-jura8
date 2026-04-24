@@ -70,7 +70,7 @@ namespace esphome {
         if (this->available()) {
           int rawbyte = this->read();
           bit2 = (rawbyte) >> 2 & 0x01;
-          bit5 = (rawbyte) >> 5 & 0x01);
+          bit5 = (rawbyte) >> 5 & 0x01;
 
           inbyte = inbyte & ~(1u << (s + 0)) | (bit2 << (s + 0));
           inbyte = inbyte & ~(1u << (s + 1)) | (bit5 << (s + 1));
