@@ -4,11 +4,12 @@
 namespace esphome {
   namespace jura_coffee {
 
-    JuraCoffee::JuraCoffee() {
+    // PollingComponent registers its update timer before setup() runs,
+    // so the interval must be set here, not via set_update_interval() in setup().
+    JuraCoffee::JuraCoffee() : PollingComponent(10000) {
     }
 
     void JuraCoffee::setup() {
-      this->set_update_interval(10000); // 600000 = 10 minutes // Now 60 seconds
     }
 
     void JuraCoffee::update() {
